@@ -1,13 +1,21 @@
 import React from 'react';
 import { Constants } from 'expo';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, StyleSheet } from 'react-native';
+import Colors from '@utils/colors';
 
-const AppStatusBar = ({ backgroundColor, ...props }) => {
+const AppStatusBar = (props) => {
     return (
-        <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
-            <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+        <View style={styles.Bg}>
+            <StatusBar backgroundColor={styles.Bg.backgroundColor} barStyle="light-content" />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    Bg: {
+        backgroundColor: Colors.DarkPurple, 
+        height: Constants.statusBarHeight,
+    },
+});
 
 export default AppStatusBar;

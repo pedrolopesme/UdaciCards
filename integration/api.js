@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import initialData from '../utils/initialData';
 
-export const APP_STORAGE_KEY = 'UdaciCards_Decks';
+export const APP_STORAGE_KEY = 'UdaciCards:AppDecks';
 
 function setInitialData() {
     AsyncStorage.setItem(APP_STORAGE_KEY, JSON.stringify(initialData));

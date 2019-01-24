@@ -1,21 +1,30 @@
+import * as API from '@integration/api';
+import Colors from '@utils/colors';
+import MainNavigator from '@components/MainNavigator';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, View, StyleSheet } from 'react-native';
+import AppStatusBar from './components/AppStatusBar';
 
-export default class App extends React.Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { decks: [] }
+  }
+
+  componentDidMount() {
+    API.getDecks().then(decks => {
+      this.setState({ decks });
+    });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+      <View style={{flex: 1}}>
+        <AppStatusBar barStyle="default" />
+        <MainNavigator decks={this.state} />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

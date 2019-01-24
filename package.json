@@ -7,9 +7,13 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^32.0.0",
+    "expo": "^31.0.2",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-card-flip": "^1.0.4",
+    "react-native-vector-icons": "^6.1.0",
+    "react-navigation": "^1.0.0-beta.21",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

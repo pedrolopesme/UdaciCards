@@ -14,7 +14,7 @@ class ShowDeck extends React.Component {
         </View>
         <View style={styles.buttons}>
           <TouchableOpacity style={[styles.buttonTouchable, { backgroundColor: Colors.White }]} onPress={() =>
-            this.props.navigation.navigate('New Card', {
+            this.props.navigation.navigate('NewCard', {
               deckId: deckId,
               deckName: deckName,
               questions: questions })}>

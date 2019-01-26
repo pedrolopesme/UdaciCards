@@ -24,7 +24,6 @@ class NewDeck extends React.Component {
 
     API.saveDeck(deck.title, deck.key).then(() => {
       this.props.navigation.navigate('ShowDeck', {
-        home: true,
         deckId: deck.key,
         deckName: deck.title,
         questions: deck.questions.length,

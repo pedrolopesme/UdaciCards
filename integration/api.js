@@ -57,11 +57,12 @@ export function saveDeck(title, key) {
  * @param {string} title 
  * @param {string} content 
  */
-export function addCardToDeck(title, content) {
+export function addCardToDeck(deckId, card) {
     return AsyncStorage.getItem(APP_STORAGE_KEY).then(data => {
         decks = JSON.parse(data);
-        decks[title].questions.push(content);
-        AsyncStorage.setItem(APP_STORAGE_KEY, JSON.stringify(decks));
+        decks[deckId].questions.push(card);
+        AsyncStorage.setItem(APP_STORAGE_KEY, JSON.stringify(decks))
+        return decks[deckId];
     });
 }
 

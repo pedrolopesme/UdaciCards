@@ -1,5 +1,5 @@
-export default initialData = [
-    {
+export default initialData = {
+    'f49069d9-8fe0-4874-9867-4bd697bba416': {
         key: 'f49069d9-8fe0-4874-9867-4bd697bba416',
         title: 'React',
         questions: [
@@ -13,7 +13,7 @@ export default initialData = [
             }
         ]
     },
-    {
+    'cbf71300-64f2-4464-82c3-d89c1036896d': {
         key: 'cbf71300-64f2-4464-82c3-d89c1036896d',
         title: 'JavaScript',
         questions: [
@@ -23,4 +23,4 @@ export default initialData = [
             }
         ]
     }
-];
+};

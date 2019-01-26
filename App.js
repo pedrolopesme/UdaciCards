@@ -1,8 +1,7 @@
-import * as API from '@integration/api';
-import Colors from '@utils/colors';
 import MainNavigator from '@components/MainNavigator';
+import * as API from '@integration/api';
 import React from 'react';
-import { Platform, View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import AppStatusBar from './components/AppStatusBar';
 
 class App extends React.Component {

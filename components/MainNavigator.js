@@ -65,7 +65,7 @@ const MainNavigator = StackNavigator({
   },
   ShowDeck: {
     screen: ShowDeck,
-    navigationOptions: () => ({
+    navigationOptions: ({ navigation }) => ({
       title: `${navigation.state.params.deckName} Deck`,
       headerTintColor: Colors.Yellow,
       headerStyle: {

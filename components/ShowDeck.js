@@ -14,11 +14,10 @@ class ShowDeck extends React.Component {
         </View>
         <View style={styles.buttons}>
           <TouchableOpacity style={[styles.buttonTouchable, { backgroundColor: Colors.White }]} onPress={() =>
-            this.props.navigation.navigate('AddCard', {
+            this.props.navigation.navigate('New Card', {
               deckId: deckId,
               deckName: deckName,
-              questions: questions,
-            })}>
+              questions: questions })}>
             <Text style={styles.button}>Add Card</Text>
           </TouchableOpacity>
 
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
     flexBasis: "100%",
     alignItems: "center",
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'center'
   },
   deckHeader: {
     flex: 1,
@@ -58,9 +57,9 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
     width: '50%'
   },
   buttonTouchable: {
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
   },
   button: {
     fontSize: 20,
-    color: '#424242'
+    color: Colors.Black
   }
 });
 

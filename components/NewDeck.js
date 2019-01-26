@@ -2,12 +2,13 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 import uuid from 'uuid';
 import Colors from '@utils/colors'
+import * as API from '@integration/api'
 
 class NewDeck extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { id: uuid(), deckTitle: '' };
+    this.state = { key: uuid(), deckTitle: '' };
   }
 
   saveDeck = () => {
@@ -16,18 +17,19 @@ class NewDeck extends React.Component {
     }
 
     const deck = {
-      id: this.state.id,
-      key: this.state.id,
+      key: this.state.key,
       title: this.state.deckTitle,
       questions: [],
     }
-    AsyncStorage.setItem(this.state.id, JSON.stringify(deck));
-    this.props.navigation.navigate('ShowDeck', {
-      home: true,
-      deckId: this.state.id,
-      deckName: deck.title,
-      questions: deck.questions.length,
-    }) && this.resetState();
+
+    API.saveDeck(deck.title, deck.key).then(() => {
+      this.props.navigation.navigate('ShowDeck', {
+        home: true,
+        deckId: deck.key,
+        deckName: deck.title,
+        questions: deck.questions.length,
+      }) && this.resetState();
+    });
   }
 
   validate = () => {

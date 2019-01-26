@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import initialData from '../utils/initialData';
 
-export const APP_STORAGE_KEY = 'UdaciCards:AppDecks';
+export const APP_STORAGE_KEY = 'UdaciCardsApp:Decks';
 
 function setInitialData() {
     AsyncStorage.setItem(APP_STORAGE_KEY, JSON.stringify(initialData));
@@ -14,7 +14,10 @@ function setInitialData() {
 export function getDecks() {
     return AsyncStorage.getItem(APP_STORAGE_KEY)
         .then(results =>
-            results !== null ? JSON.parse(results) : setInitialData());
+            results !== null ? JSON.parse(results) : setInitialData()
+        ).then(results => 
+            Object.keys(results).map(key => results[key])
+        );
 }
 
 /**
@@ -30,19 +33,20 @@ export function getDeck(id) {
 }
 
 /**
- * Take in a single title argument and add it to the decks. 
+ * Take in a single dock and add it to the decks. 
  * 
  * @param {string} title 
  * @param {string} key 
  */
-export function saveDeckTitle(title, key) {
+export function saveDeck(title, key) {
     return AsyncStorage.mergeItem(
-        UDACICARDS_STORAGE_KEY,
+        APP_STORAGE_KEY,
         JSON.stringify({
-            [title]: {
+            [key]: {
+                key,
                 title,
                 questions: [],
-            },
+            }
         }),
     );
 }

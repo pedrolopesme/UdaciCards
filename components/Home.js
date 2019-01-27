@@ -4,7 +4,7 @@ import React from 'react';
 import { ActivityIndicator, FlatList, View, StyleSheet } from 'react-native';
 import DeckGridItem from './DeckGridItem';
 
-class MainComponent extends React.Component {
+class Home extends React.Component {
 
   state = {
     decks: [],
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainComponent;
+export default Home;

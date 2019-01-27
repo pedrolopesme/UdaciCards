@@ -1,4 +1,4 @@
-import MainComponent from '@components/MainComponent';
+import Home from '@components/Home';
 import NewCard from '@components/NewCard';
 import NewDeck from '@components/NewDeck';
 import Quiz from '@components/Quiz';
@@ -12,7 +12,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 
 const DeckTabs = TabNavigator({
   Main: {
-    screen: MainComponent,
+    screen: Home,
     navigationOptions: {
       tabBarLabel: 'Decks',
       tabBarIcon: ({ tintColor }) =>

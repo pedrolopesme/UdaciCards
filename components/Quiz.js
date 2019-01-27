@@ -38,13 +38,6 @@ class Quiz extends React.Component {
     }
     this.quizScore += answer;
     this.card.flip();
-    // Todo refactor to use onFlipEnd
-    // setTimeout(() => {
-    //   this.setState(prev => ({
-    //     questionIndex: prev.questionIndex + 1,
-    //     quizScore: prev.quizScore + answer
-    //   }))
-    // }, 300);
   }
 
   /**

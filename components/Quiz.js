@@ -9,13 +9,12 @@ const ANSWER = { CORRECT: 1, WRONG: 0 };
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
-
+    this.quizScore = 0;
     this.state = {
       cardsQuantity: null,
       deck: { deckId: this.props.navigation.state.params.deckId },
       deckLoaded: false,
       questionIndex: 0,
-      quizScore: 0,
     }
   }
 
@@ -30,22 +29,22 @@ class Quiz extends React.Component {
   }
 
   /**
-   * Take care of flipping a card and finish the quiz if it has reached to the end.
+   * Takes care of flipping a card and finish the quiz if it has reached to the end.
    */
   answerCard = (answer) => {
     if (this.hasReachedToTheEnd()) {
       this.moveToEnd();
       return;
     }
-
+    this.quizScore += answer;
     this.card.flip();
     // Todo refactor to use onFlipEnd
-    setTimeout(() => {
-      this.setState(prev => ({
-        questionIndex: prev.questionIndex + 1,
-        quizScore: prev.quizScore + answer
-      }))
-    }, 300);
+    // setTimeout(() => {
+    //   this.setState(prev => ({
+    //     questionIndex: prev.questionIndex + 1,
+    //     quizScore: prev.quizScore + answer
+    //   }))
+    // }, 300);
   }
 
   /**
@@ -65,7 +64,7 @@ class Quiz extends React.Component {
   moveToEnd = () => {
     this.props.navigation.navigate('QuizEnd', {
       deck: this.state.deck,
-      percentage: this.state.quizScore / this.state.cardsQuantity
+      percentage: this.quizScore / this.state.cardsQuantity
     });
   }
 
@@ -121,7 +120,14 @@ class Quiz extends React.Component {
 
     return <View style={styles.container}>
       {this.state.deckLoaded && (
-        <CardFlip style={styles.card} ref={(card) => this.card = card}>
+        <CardFlip
+          style={styles.card}
+          ref={(card) => this.card = card}
+          duration={300}
+          flipDirection={'x'}
+          onFlipEnd={(side) => {
+            side === 0 && this.setState(prev => ({ questionIndex: prev.questionIndex + 1}))}
+          }>
           {this.frontCardElements(question)}
           {this.backCardElements(question)}
         </CardFlip>
@@ -223,7 +229,7 @@ const styles = StyleSheet.create({
   },
   answerButtons: {
     textAlign: 'center',
-    backgroundColor: Colors.White, 
+    backgroundColor: Colors.White,
     fontSize: 20
   }
 });

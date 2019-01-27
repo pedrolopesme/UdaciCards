@@ -24,7 +24,7 @@ To start the development server just type:
 npm start
 ```
 
-### Screeshots
+### Screenshots
 
 | | |
 |---|---|

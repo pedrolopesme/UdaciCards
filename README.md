@@ -4,7 +4,7 @@
     <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/decks.png?raw=true" />
 </h1>
 
-<h4 align="center">Udacity React Native Project - [Expo](https://expo.io/@pedrolopesme/UdaciCards)</h4>
+<h4 align="center">Udacity React Native Project <br /> https://expo.io/@pedrolopesme/UdaciCards </h4>
 
 ### Project Overview
 

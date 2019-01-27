@@ -1,7 +1,6 @@
-import { Notifications, Permissions } from 'expo'
-import { AsyncStorage } from 'react-native'
-import * as API from '@integration/api'
-import * as DT from '@utils/date'
+import * as API from '@integration/api';
+import * as DT from '@utils/date';
+import { Notifications, Permissions } from 'expo';
 
 // Configurable hours interval to send notifications
 const DEFAULT_NOTIFICATION_HOURS_INTERVAL = 24;
@@ -36,8 +35,19 @@ export const turnOnNotification = () => {
  * Removes any local scheduled notifications
  */
 export const turnOffNotification = () => {
-  return API.removeNotification()
-    .then(() => Notifications.cancelAllScheduledNotificationsAsync())
+  return API.getNotification()
+    .then((notification) => {
+      if (notification) {
+        Permissions.askAsync(Permissions.NOTIFICATIONS)
+          .then(({ status }) => {
+            if (status === 'granted') {
+              API.removeNotification()
+                .then(Notifications.cancelAllScheduledNotificationsAsync)
+                .catch((err) => console.log("Something went wrong", err));
+            }
+          });
+      }
+    });
 }
 
 /**

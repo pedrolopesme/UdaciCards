@@ -72,7 +72,7 @@ export function addCardToDeck(deckId, card) {
  *
  */
 export function getNotification() {
-    return AsyncStorage.getItem(APP_STORAGE_NOTIFICATION).then(data =>
+    return AsyncStorage.getItem(APP_STORAGE_NOTIFICATION_KEY).then(data =>
         JSON.parse(data));
 }
 
@@ -81,7 +81,7 @@ export function getNotification() {
  *
  */
 export function removeNotification() {
-    return AsyncStorage.removeItem(APP_STORAGE_NOTIFICATION);
+    return AsyncStorage.removeItem(APP_STORAGE_NOTIFICATION_KEY);
 }
 
 /**
@@ -89,5 +89,5 @@ export function removeNotification() {
  *
  */
 export function setNotification() {
-    return AsyncStorage.setItem(APP_STORAGE_NOTIFICATION, JSON.stringify({ scheduled: true }));
+    return AsyncStorage.setItem(APP_STORAGE_NOTIFICATION_KEY, JSON.stringify({ scheduled: true }));
 }

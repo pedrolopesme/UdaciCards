@@ -3,7 +3,7 @@ import { Constants } from 'expo';
 import { StatusBar, View, StyleSheet } from 'react-native';
 import Colors from '@utils/colors';
 
-const AppStatusBar = (props) => {
+const AppStatusBar = () => {
     return (
         <View style={styles.Bg}>
             <StatusBar backgroundColor={styles.Bg.backgroundColor} barStyle="light-content" />

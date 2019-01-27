@@ -4,25 +4,23 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 class DeckListItem extends Component {
     render() {
-        return (
-            <TouchableOpacity
-                style={styles.card}
-                disabled={this.props.nolink ? true : false}
-                onPress={() =>
-                    this.props.navigation.navigate('ShowDeck', {
-                        deckName: this.props.deckName,
-                        questions: this.props.questions,
-                        deckId: this.props.deckId
-                    })}>
-                <View style={styles.leftColumn}>
-                    <Text style={styles.deckName}> {this.props.deckName} </Text>
-                </View>
-                <View style={styles.rightColumn}>
-                    <Text style={styles.deckItemsQtt}> {this.props.questions} </Text>
-                    <Text style={styles.deckMeta}> card(s). </Text>
-                </View>
-            </TouchableOpacity>
-        )
+        return <TouchableOpacity
+            style={styles.card}
+            disabled={this.props.nolink ? true : false}
+            onPress={() =>
+                this.props.navigation.navigate('ShowDeck', {
+                    deckName: this.props.deckName,
+                    questions: this.props.questions,
+                    deckId: this.props.deckId
+                })}>
+            <View style={styles.leftColumn}>
+                <Text style={styles.deckName}> {this.props.deckName} </Text>
+            </View>
+            <View style={styles.rightColumn}>
+                <Text style={styles.deckItemsQtt}> {this.props.questions} </Text>
+                <Text style={styles.deckMeta}> card(s). </Text>
+            </View>
+        </TouchableOpacity>
     }
 };
 

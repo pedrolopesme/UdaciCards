@@ -13,6 +13,9 @@ class NewCard extends React.Component {
     }
   }
 
+  /**
+   * Saves a new card to current deck
+   */
   saveCard = () => {
     if (!this.validate()) {
       return;
@@ -32,6 +35,9 @@ class NewCard extends React.Component {
     });
   }
 
+  /**
+   * Checks if a new card is valid before saved it
+   */
   validate = () => {
     if (this.state.question === '' || this.state.answer === '') {
       alert('Hey, you can\'t add a new Card without a Question and a Answer. 😩');
@@ -40,6 +46,9 @@ class NewCard extends React.Component {
     return true;
   }
 
+  /**
+   * Cleans the state
+   */
   resetState = () =>
     this.setState({ question: '', answer: '' });
 

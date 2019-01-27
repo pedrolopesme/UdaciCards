@@ -11,6 +11,9 @@ class NewDeck extends React.Component {
     this.state = { key: uuid(), deckTitle: '' };
   }
 
+  /**
+   * Saves a new deck
+   */
   saveDeck = () => {
     if (!this.validate()) {
       return;
@@ -31,6 +34,9 @@ class NewDeck extends React.Component {
     });
   }
 
+  /**
+   * Checks if a deck is valid
+   */
   validate = () => {
     if (this.state.deckTitle === '') {
       alert('Hey, you can\'t add a new deck without a name. 😩');
@@ -39,6 +45,9 @@ class NewDeck extends React.Component {
     return true;
   }
 
+  /**
+   * Cleans the state
+   */
   resetState = () =>
     this.setState({ id: uuid(), deckTitle: '' });
 

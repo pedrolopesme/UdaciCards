@@ -11,6 +11,9 @@ class Home extends React.Component {
     loading: false
   }
 
+  /**
+   * Knows how to refresh deck list
+   */
   handleRefresh = () => {
     API.getDecks().then(decks => {
       this.setState({ decks: decks, loading: false });

@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Udacity's React Native Flashcards app ",
+    "githubUrl": "https://github.com/pedrolopesme/UdaciCards"
   }
 }

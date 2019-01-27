@@ -2,7 +2,7 @@ import * as API from '@integration/api';
 import Colors from '@utils/colors';
 import React from 'react';
 import { ActivityIndicator, FlatList, View, StyleSheet } from 'react-native';
-import DeckGridItem from './DeckGridItem';
+import DeckListItem from './DeckListItem';
 
 class Home extends React.Component {
 
@@ -39,7 +39,7 @@ class Home extends React.Component {
             refreshing={this.state.loading}
             numColumns={1}
             renderItem={({ item }) =>
-              <DeckGridItem
+              <DeckListItem
                 deckId={item.key}
                 navigation={this.props.navigation}
                 questions={item.questions.length}

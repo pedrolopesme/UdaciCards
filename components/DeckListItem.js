@@ -2,7 +2,7 @@ import Colors from '@utils/colors';
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-class DeckGridItem extends Component {
+class DeckListItem extends Component {
     render() {
         return (
             <TouchableOpacity
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default DeckGridItem;
+export default DeckListItem;

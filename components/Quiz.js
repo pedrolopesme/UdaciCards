@@ -32,7 +32,10 @@ class Quiz extends React.Component {
    * Takes care of flipping a card and finish the quiz if it has reached to the end.
    */
   answerCard = (answer) => {
-    this.quizScore += answer;
+    if (answer) {
+      this.quizScore++;
+    }
+
     if (this.hasReachedToTheEnd()) {
       this.moveToEnd();
       return;
@@ -100,12 +103,12 @@ class Quiz extends React.Component {
         <Text style={styles.answerText}> {question.answer} </Text>
         <TouchableOpacity
           style={[styles.buttonTouchable, styles.answerButtons]}
-          onPress={() => this.answerCard(ANSWER.CORRECT, this.card)}>
+          onPress={() => this.answerCard(ANSWER.CORRECT)}>
           <Text style={[styles.button, styles.answerButtons]}> Correct </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.buttonTouchable, styles.answerButtons]}
-          onPress={() => this.answerCard(ANSWER.WRONG, this.card)}>
+          onPress={() => this.answerCard(ANSWER.WRONG)}>
           <Text style={[styles.button, styles.answerButtons]}> Incorrect </Text>
         </TouchableOpacity>
       </View>
@@ -123,7 +126,8 @@ class Quiz extends React.Component {
           duration={300}
           flipDirection={'x'}
           onFlipEnd={(side) => {
-            side === 0 && this.setState(prev => ({ questionIndex: prev.questionIndex + 1}))}
+            side === 0 && this.setState(prev => ({ questionIndex: prev.questionIndex + 1 }))
+          }
           }>
           {this.frontCardElements(question)}
           {this.backCardElements(question)}
@@ -143,7 +147,7 @@ const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     paddingTop: 30,
-    height: '70%',
+    height: '100%',
     width: '80%',
     justifyContent: 'center',
   },
@@ -156,6 +160,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.White,
     backgroundColor: Colors.DarkPurple,
     paddingHorizontal: 20,
+
   },
   questionText: {
     fontSize: 50,

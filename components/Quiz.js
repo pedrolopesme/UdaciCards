@@ -32,11 +32,11 @@ class Quiz extends React.Component {
    * Takes care of flipping a card and finish the quiz if it has reached to the end.
    */
   answerCard = (answer) => {
+    this.quizScore += answer;
     if (this.hasReachedToTheEnd()) {
       this.moveToEnd();
       return;
     }
-    this.quizScore += answer;
     this.card.flip();
   }
 
@@ -55,7 +55,11 @@ class Quiz extends React.Component {
    * Move user to the Quiz End
    */
   moveToEnd = () => {
-    this.props.navigation.navigate('QuizEnd', {
+    console.log("QUIZ SCORE >>> ", this.quizScore);
+    console.log("CARDS QTT >>> ", this.state.cardsQuantity);
+    console.log("PERCENTAGE >>> ", this.quizScore / this.state.cardsQuantity);
+
+    this.props.navigation.navigate('Score', {
       deck: this.state.deck,
       percentage: this.quizScore / this.state.cardsQuantity
     });

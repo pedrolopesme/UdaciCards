@@ -30,7 +30,7 @@ npm start
 |---|---|
 | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/decks.png?raw=true" /> Decks | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/deck_view.png?raw=true" /> Deck View |
 | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/new_deck.png?raw=true" /> New Deck | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/new_card.png?raw=true" /> New Card |
-| <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/quiz.png?raw=true" /> Question | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/new_card.png?raw=true" /> Answer |
+| <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/quiz.png?raw=true" /> Question | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/quiz_2.png?raw=true" /> Answer |
 | <img src="https://raw.githubusercontent.com/pedrolopesme/UdaciCards/master/screens/score.png?raw=true" /> Score |  |
 
 ### Added Libraries

@@ -2,6 +2,7 @@ import Home from '@components/Home';
 import NewCard from '@components/NewCard';
 import NewDeck from '@components/NewDeck';
 import Quiz from '@components/Quiz';
+import Score from '@components/Score';
 import ShowDeck from '@components/ShowDeck';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '@utils/colors';
@@ -52,17 +53,6 @@ const DeckTabs = TabNavigator({
 
 const MainNavigator = StackNavigator({
   Home: { screen: DeckTabs },
-  Quiz: {
-    screen: Quiz,
-    navigationOptions: () => ({
-      title: 'Quiz',
-      headerTintColor: Colors.Yellow,
-      headerStyle: {
-        backgroundColor: Colors.DarkPurple,
-        marginTop: 0 - Constants.statusBarHeight
-      }
-    }),
-  },
   ShowDeck: {
     screen: ShowDeck,
     navigationOptions: ({ navigation }) => ({
@@ -84,7 +74,29 @@ const MainNavigator = StackNavigator({
         marginTop: 0 - Constants.statusBarHeight
       }
     }),
-  }
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: () => ({
+      title: 'Quiz',
+      headerTintColor: Colors.Yellow,
+      headerStyle: {
+        backgroundColor: Colors.DarkPurple,
+        marginTop: 0 - Constants.statusBarHeight
+      }
+    }),
+  },
+  Score: {
+    screen: Score,
+    navigationOptions: () => ({
+      title: 'Score',
+      headerTintColor: Colors.Yellow,
+      headerStyle: {
+        backgroundColor: Colors.DarkPurple,
+        marginTop: 0 - Constants.statusBarHeight
+      }
+    }),
+  },
 });
 
 export default MainNavigator;

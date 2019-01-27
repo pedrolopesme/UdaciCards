@@ -160,7 +160,6 @@ const styles = StyleSheet.create({
     borderColor: Colors.White,
     backgroundColor: Colors.DarkPurple,
     paddingHorizontal: 20,
-
   },
   questionText: {
     fontSize: 50,
